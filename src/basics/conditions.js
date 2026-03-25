@@ -14,8 +14,11 @@
  */
 export function isBiggerThan2(n) {
   // Write your code here
+  if (typeof n === 'string' || Number.isNaN(n)) {
+    throw new Error()
+  }
+  return n > 2
 }
-
 /**
  * @param {number} n
  * @param {number} m
@@ -23,4 +26,8 @@ export function isBiggerThan2(n) {
  */
 export function isMult(n, m) {
   // Write your code here
+  if (Number.isFinite(n) && Number.isFinite(m)) {
+    return n % m === 0
+  }
+  throw new Error()
 }
