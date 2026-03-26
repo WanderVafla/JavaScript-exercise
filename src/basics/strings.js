@@ -8,4 +8,19 @@
  */
 export function findAndReplacePreservingCase(needle, haystack, newWord) {
   // Write your code here
+
+  const regex = new RegExp(needle, 'gi');
+  return haystack.replace(regex, (match) => {
+    const chars = newWord.slice(0, needle.length).split('');
+
+    const transformed = chars.map((char, index) => {
+      const referenceChar = match[index] || match[match.length - 1];
+
+      return referenceChar === referenceChar.toUpperCase() 
+        ? char.toUpperCase() 
+        : char.toLowerCase();
+    });
+
+    return transformed.join('');
+  })
 }
