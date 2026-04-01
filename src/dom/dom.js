@@ -4,14 +4,14 @@
  * https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
  */
 
-
 /**
  * You need to change the color of the html element with the id "change-my-color"
  */
 export function getElementFromDomAndChangeColorToRed() {
   // Write your code here
-  return document.getElementById("change-my-color").style.color = "red"
-
+  const changeColorEl = document.getElementById('change-my-color')
+  changeColorEl.style.color = 'red'
+  return changeColorEl
 }
 
 /**
@@ -20,10 +20,9 @@ export function getElementFromDomAndChangeColorToRed() {
  */
 export function addElementsInDOM() {
   // Write your code here
-  return document.getElementById("add-your-elements-in-this-element").innerHTML = `
-  <p>Bonjour</p>
-  <p>Toto</p>
-  `
+  const listElements = document.getElementById('add-your-elements-in-this-element')
+  listElements.innerHTML = `<p>Bonjour</p><p>Toto</p>`
+  return listElements
 }
 /**
  * You get a list of elements, and you have to add it in a html list, the list
@@ -34,11 +33,12 @@ export function addElementsInDOM() {
 export function addAListInDomFromAnArrayOfObjects(listElements) {
   // Write your code here
   for (const element of listElements) {
-    const newElementList = document.createElement("li");
-    const textElementList = document.createTextNode(element.name);
-    newElementList.appendChild(textElementList);
+    const newElementList = document.createElement('li')
+    const textElementList = document.createTextNode(element.name)
+    newElementList.appendChild(textElementList)
 
-    document.getElementById("add-list-here").appendChild(newElementList).style.backgroundColor = element.color;
+    document
+      .getElementById('add-list-here')
+      .appendChild(newElementList).style.backgroundColor = element.color
   }
-
 }

@@ -5,10 +5,10 @@
  */
 export function reactToClickEvent() {
   // Write your code here
-  const button = document.getElementById("click-me");
-  button.addEventListener("click", () => {
-    alert("Button clicked")
-  });
+  const button = document.getElementById('click-me')
+  button.addEventListener('click', () => {
+    alert('Button clicked')
+  })
 }
 
 /**
@@ -17,10 +17,10 @@ export function reactToClickEvent() {
  */
 export function addEventToDomOnClick() {
   // Write your code here
-  const button = document.getElementById("click-me");
-  button.addEventListener("click", () => {
-    const newContainer = document.createElement("div")
-    newContainer.textContent = "clicked"
+  const button = document.getElementById('click-me')
+  button.addEventListener('click', () => {
+    const newContainer = document.createElement('div')
+    newContainer.textContent = 'clicked'
     button.after(newContainer)
-  });
+  })
 }

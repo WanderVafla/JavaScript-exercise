@@ -5,8 +5,9 @@
  */
 export function mouseMovements() {
   // Write your code here
-  document.querySelector("html").addEventListener("mousemove", (event) => {
-    document.getElementById("mouse-coordinates").textContent = `x: ${event.clientX}, y: ${event.clientY}`
+  document.querySelector('html').addEventListener('mousemove', (event) => {
+    document.getElementById('mouse-coordinates').textContent =
+      `x: ${event.clientX}, y: ${event.clientY}`
   })
 }
 
@@ -16,7 +17,7 @@ const randomRGB = () => {
   const s = 255
   return `rgba(${o(r() * s)},${o(r() * s)},${o(r() * s)})`
 }
-const enteringColor = ''
+let enteringColor = ''
 
 /**
  * On the page, you have an input with the id "focus-me".
@@ -29,25 +30,28 @@ const enteringColor = ''
  */
 export function hoverFocusAndBlur() {
   // Write your code here
-  const input = document.getElementById('focus-me');
+  const input = document.getElementById('focus-me')
   const label = document.querySelectorAll('label[for="focus-me"]')
-  
-  input.addEventListener("mouseenter", () => {
-    label.forEach(element => element.textContent = 'Yes, you hover me !');
-  });
-  input.addEventListener("focus", () => {
-    input.style.borderColor = randomRGB();
-  });
-  input.addEventListener("blur", () => {
-    if (!input.value) {
-      input.style.borderColor = "rgb(100, 149, 237)";
-    }
-  });
-  input.addEventListener("mouseout", () => {
-    label[0].textContent = "Focus me :";
-    label[1].textContent = "A second label ! just for fun";
+
+  input.addEventListener('mouseenter', () => {
+    label.forEach((element) => {
+      element.textContent = 'Yes, you hover me !'
+    })
   })
-  
+  input.addEventListener('focus', () => {
+    enteringColor = randomRGB()
+    input.style.borderColor = enteringColor
+  })
+  input.addEventListener('blur', () => {
+    if (!input.value) {
+      enteringColor = 'rgb(100, 149, 237)'
+      input.style.borderColor = enteringColor
+    }
+  })
+  input.addEventListener('mouseout', () => {
+    label[0].textContent = 'Focus me :'
+    label[1].textContent = 'A second label ! just for fun'
+  })
 }
 
 /**
@@ -60,15 +64,12 @@ export function hoverFocusAndBlur() {
  */
 export function changesOnInputEvents() {
   // Write your code here
-  const input = document.getElementById('focus-me');
+  const input = document.getElementById('focus-me')
   const label = document.querySelectorAll('label[for="focus-me"]')
-  const newColor = randomRGB()
-  input.addEventListener("input", () => {
-      label.forEach(element => {
-        element.style.border = "2px solid"
-        element.style.borderColor = newColor
-        // style.sheet.insertRule(`${element} {border-color: ${randomRGB()}`)
-      })
-      colorBorder = input.style.borderColor = newColor
+  input.addEventListener('input', () => {
+    label.forEach((element) => {
+      element.style.border = '2px solid'
+      element.style.borderColor = enteringColor
+    })
   })
 }

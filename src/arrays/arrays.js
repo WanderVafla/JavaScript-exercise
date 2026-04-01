@@ -4,6 +4,21 @@
  */
 export function splitAllStringsByWordAndFilterEmptyOnes(array) {
   // Write your code here
+  const newArray = []
+  array
+    .filter((item) => item !== ' ' && item !== '')
+    .map((element) => {
+      if (/\s/.test(element)) {
+        const wordsSepaired = element.split(' ')
+        for (const i of wordsSepaired) {
+          newArray.push(i)
+        }
+      } else {
+        newArray.push(element)
+      }
+      return newArray
+    })
+  return newArray
 }
 
 /**
@@ -14,6 +29,7 @@ export function splitAllStringsByWordAndFilterEmptyOnes(array) {
  */
 export function concatenateArrays(array1, array2) {
   // Write your code here
+  return array1.concat(array2)
 }
 
 /**
@@ -28,4 +44,8 @@ export function replaceElementsInArrayAtAGivenPlace(
   ...newElements
 ) {
   // Write your code here
+  const newArray = [...array]
+  newArray.splice(index, newElements.length, ...newElements)
+
+  return newArray
 }

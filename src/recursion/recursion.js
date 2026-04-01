@@ -5,8 +5,12 @@
  * @param {number} n - A non-negative integer
  * @return {number} The factorial of n
  */
+
 export function factorial(n) {
-  // Write your code here
+  if (n === 0 || n === 1) {
+    return 1
+  }
+  return n * factorial(n - 1)
 }
 
 /**
@@ -18,4 +22,8 @@ export function factorial(n) {
  */
 export function fibonacci(n) {
   // Write your code here
+  if (n === 0 || n === 1) {
+    return n
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2)
 }
